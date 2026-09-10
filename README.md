@@ -52,6 +52,19 @@ For each data scale, report:
 • Training time
 • Training and validation performance
 
+Sampling strategies:
+    1. uniform
+       Stratified sampling: approximately the same fraction of every class is
+       retained. This keeps the class distribution close to the original
+       training split.
+
+    2. nonuniform
+       A deterministic weighted random ordering favors some classes more than
+       others. Taking the first N samples from this ordering creates an
+       intentionally class-imbalanced subset. The class preference assignment
+       is randomized using the fixed project seed so alphabetical class names
+       do not determine which classes are favored.
+
 ![Performance non-uniform 10% training data](core_component3_results/plots/history_scores_nonuniform_010pct.png)
 ![Performance non-uniform 25% training data](core_component3_results/plots/history_scores_nonuniform_025pct.png)
 ![Performance uniform 10% training data](core_component3_results/plots/history_scores_uniform_010pct.png)

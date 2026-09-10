@@ -1,102 +1,3 @@
-"""
-CORE COMPONENT 3
-================
-Controlled training-data scaling experiments for the existing from-scratch
-CuPy Vision Transformer.
-
-IMPORTANT
----------
-This file DOES NOT modify model/ and DOES NOT change the Transformer
-architecture. It imports the exact baseline architecture and training utilities
-from core_component1.py.
-
-Only the TRAINING DATA changes.
-
-Experiments
------------
-Data fractions:
-    10%, 25%, 50%, 100%
-
-Sampling strategies:
-    1. uniform
-       Stratified sampling: approximately the same fraction of every class is
-       retained. This keeps the class distribution close to the original
-       training split.
-
-    2. nonuniform
-       A deterministic weighted random ordering favors some classes more than
-       others. Taking the first N samples from this ordering creates an
-       intentionally class-imbalanced subset. The class preference assignment
-       is randomized using the fixed project seed so alphabetical class names
-       do not determine which classes are favored.
-
-The 10% subset is nested inside the 25% subset, which is nested inside 50%,
-which is nested inside 100% for each strategy. This makes data scaling cleaner:
-more-data experiments add examples instead of replacing the smaller subset.
-
-What stays fixed
-----------------
-    - VisionTransformer implementation in model/
-    - image size
-    - patch size
-    - embedding dimension
-    - attention heads
-    - Transformer blocks
-    - MLP ratio
-    - dropout
-    - label smoothing
-    - batch size
-    - AdamW hyperparameters
-    - learning-rate schedule
-    - augmentation policy
-    - validation split
-    - random seed
-    - maximum number of epochs
-
-For every experiment this file saves/reports
---------------------------------------------
-    - number of training samples
-    - fraction of full training split
-    - sampling strategy
-    - per-class training subset counts
-    - classes represented
-    - imbalance ratio
-    - normalization statistics computed only from that subset
-    - normalization-statistics computation time
-    - epoch-wise train loss / objective / accuracy
-    - epoch-wise validation loss / accuracy / macro-F1
-    - best validation accuracy and corresponding epoch
-    - final train and validation performance
-    - training time
-    - total wall time
-    - best checkpoint
-
-Analysis generated automatically
---------------------------------
-    - validation accuracy vs data size
-    - validation macro-F1 vs data size
-    - train accuracy vs data size
-    - train/validation loss vs data size
-    - training time vs data size
-    - validation accuracy vs training time
-    - class coverage vs data size
-    - imbalance ratio vs data size
-    - per-experiment learning curves
-    - diminishing-return table and plot
-    - simple empirical power-law fit:
-          validation_error ~= A * N^(-alpha)
-      reported separately for uniform and nonuniform sampling
-    - conclusions.md
-
-Expected layout
----------------
-project/
-    core_component1.py
-    core_component_03.py      <-- this file
-    model/                    <-- UNCHANGED
-    train/                    <-- same dataset
-"""
-
 from pathlib import Path
 import csv
 import json
@@ -118,7 +19,7 @@ import matplotlib.pyplot as plt
 # its train() invocation is protected by if __name__ == '__main__'.
 # Support either naming convention used in the project.
 try:
-    import core_component1 as core1
+    import core_component_01 as core1
 except ModuleNotFoundError:
     import core_component_01 as core1
 
