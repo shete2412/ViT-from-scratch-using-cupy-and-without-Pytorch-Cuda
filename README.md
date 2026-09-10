@@ -13,17 +13,28 @@ The complete architecture must be trainable end-to-end. Students are responsible
 In this experiment, we will investigate the effect of model capacity while keeping the training dataset fixed. we
 must conduct controlled experiments, where only the intended architectural parameter(s) are changed while other
 experimental conditions are kept as consistent as possible.
+
 • Number of layers
+
 • Attention heads
+
 • Embedding dimension
+
 • and so on...
+
 we should analyse the impact of scaling the model using any of the hyperparameter and derive a conclusive
 impact on the performance in terms of accuracy vs computation. For each experiment, report:
+
 • Number of parameters
+
 • FLOPs
+
 • MACs
+
 • Training and validation performance
+
 • Inference latency
+
 • Inference throughput
 
 Experiments:
@@ -45,11 +56,14 @@ Experiments:
 
 # Core Component 3 (Data Scaling)
 In this experiment, we will investigate the effect of training-data size while keeping the Transformer architecture
-fixed. we will train the same baseline architecture using different amounts of the provided training data. For
-example: 10%,25%,50%,100%. Explore the impact of uniform sampling of data vs non uniform sampling as well
+fixed. we will train the same baseline architecture using different amounts of the provided training data.
+
+For example: 10%,25%,50%,100%. Explore the impact of uniform sampling of data vs non uniform sampling as well
 and its impact on classification score.
 For each data scale, report:
+
 • Training time
+
 • Training and validation performance
 
 ### Sampling Strategies
