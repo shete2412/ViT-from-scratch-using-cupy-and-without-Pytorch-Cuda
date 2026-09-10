@@ -1,0 +1,29 @@
+# Core component 3 runtime artifacts
+core_component3_results/checkpoints/
+core_component3_results/logs/
+core_component3_results/progress.json
+
+# Core component 2 runtime artifacts
+core_component2_results/checkpoints/
+core_component2_results/logs/
+core_component2_results/progress.json
+
+# Model checkpoints generally
+*.pt
+*.pth
+*.ckpt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Training data
+train/
+
+# IDE
+.vscode/
+.idea/
