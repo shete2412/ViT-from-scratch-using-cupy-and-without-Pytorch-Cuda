@@ -1,17 +1,15 @@
-#Core Component 01 (Attention Implementation)
+# Core Component 01 (Attention Implementation)
 Implement a vision transformer architecture and train it end-to-end for classification on the provided dataset. The
 vision transformer architecture must consist of at least:
 • Image tokenizer
 • Two transformer block with multi-head self attention. Each transformer block must consist at least:– Normalization layer– Skip residual connection– Multi-layer perceptron– Query, Key and Value projection– At least 2 heads in multi-head self attention
 
-The complete architecture must be trainable end-to-end. Students are responsible for implementing the forward
-and backward computations required to train their models. The implementation must not rely on pre-existing
-implementations of Transformer layers, attention layers, or automatic differentiation.
+The complete architecture must be trainable end-to-end. Students are responsible for implementing the forward and backward computations required to train their models. The implementation must not rely on pre-existing implementations of Transformer layers, attention layers, or automatic differentiation.
 
-![Architecture](architecture\architecture.png)
-![Gradients Flow](architecture\backward_gradients.png)
+![Architecture](architecture/architecture.png)
+![Gradients Flow](architecture/backward_gradients.png)
 
-#Core Component 2 (Model Scaling)
+# Core Component 2 (Model Scaling)
 In this experiment, we will investigate the effect of model capacity while keeping the training dataset fixed. we
 must conduct controlled experiments, where only the intended architectural parameter(s) are changed while other
 experimental conditions are kept as consistent as possible.
@@ -42,11 +40,10 @@ Experiments:
   11. mlp_ratio_2        | L=3 H=4 D=256 MLP=2
   12. mlp_ratio_6        | L=3 H=4 D=256 MLP=6
 
-![Baseline Accuracy](core_component2_results\plots\baseline_accuracy_history.png)
-![Layer 2 Accuracy](core_component2_results\plots\layers_2_accuracy_history.png)
+![Baseline Accuracy](core_component2_results/plots/baseline_accuracy_history.png)
+![Layer 2 Accuracy](core_component2_results/plots/layers_2_accuracy_history.png)
 
-
-#Core Component 3 (Data Scaling)
+# Core Component 3 (Data Scaling)
 In this experiment, we will investigate the effect of training-data size while keeping the Transformer architecture
 fixed. we will train the same baseline architecture using different amounts of the provided training data. For
 example: 10%,25%,50%,100%. Explore the impact of uniform sampling of data vs non uniform sampling as well
@@ -55,8 +52,7 @@ For each data scale, report:
 • Training time
 • Training and validation performance
 
-![performance non-uniform 10% training data](core_component3_results\plots\history_scores_nonuniform_010pct.png)
-![performance non-uniform 25% training data](core_component3_results\plots\history_scores_nonuniform_025pct.png)
-![performance uniform 10% training data](core_component3_results\plots\history_scores_uniform_010pct.png)
-![performance uniform 25% training data](core_component3_results\plots\history_scores_uniform_025pct.png)
-
+![Performance non-uniform 10% training data](core_component3_results/plots/history_scores_nonuniform_010pct.png)
+![Performance non-uniform 25% training data](core_component3_results/plots/history_scores_nonuniform_025pct.png)
+![Performance uniform 10% training data](core_component3_results/plots/history_scores_uniform_010pct.png)
+![Performance uniform 25% training data](core_component3_results/plots/history_scores_uniform_025pct.png)
