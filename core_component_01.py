@@ -1,36 +1,3 @@
-"""
-train.py
-
-Improved training pipeline for the from-scratch CuPy ViT.
-
-Changes relative to the previous version
-----------------------------------------
-1. Use a configurable number of Transformer blocks.
-2. Keep shuffled fixed-size mini-batches.
-3. Use ordinary softmax cross entropy because classes are balanced.
-4. Replace plain SGD with manually implemented AdamW.
-5. Learning-rate schedule:
-       5-epoch warmup
-       +
-       cosine decay
-6. Add training augmentation:
-       random horizontal flip
-       mild brightness/contrast/saturation jitter
-       mild random zoom + crop/translation
-7. Compute RGB mean/std from TRAINING data only.
-8. Normalize train/validation images using those statistics.
-9. Add final LayerNorm before CLS classification.
-10. Save RGB mean/std inside checkpoint for test.py.
-11. Keep all ViT architecture operations inside model/.
-12. Add embedding dropout after CLS + positional embedding.
-13. Augmentation schedule:
-       Epoch 1: 100% non-augmented training images.
-       Epoch 2 onward: ~20% non-augmented and ~80% randomly augmented.
-
-One epoch still means:
-    every training image is used once.
-"""
-
 from pathlib import Path
 import math
 import random
