@@ -54,11 +54,11 @@ For each data scale, report:
 
 ### Sampling Strategies
 
-1. **Uniform sampling**
+1. **Uniform sampling ->**
    Stratified sampling retains approximately the same fraction of every class,
    keeping the class distribution close to the original training split.
 
-2. **Nonuniform sampling**
+2. **Nonuniform sampling ->**
    A deterministic weighted random ordering favors some classes over others.
    Taking the first *N* samples from this ordering creates an intentionally
    class-imbalanced subset. The class preference assignment is randomized using
